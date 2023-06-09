@@ -1,0 +1,71 @@
+[33mcommit c4f416867dddae7e012018f440ecc22d9b0f28f1[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: wake770 <2771601060@qq.com>
+Date:   Fri Jun 9 11:47:52 2023 +0800
+
+    pinia优化导航数据
+
+[33mcommit 845f0a4e37ffe7fafa0b89d75b8c1a76765df406[m
+Author: wake770 <2771601060@qq.com>
+Date:   Fri Jun 9 11:12:23 2023 +0800
+
+    吸顶导航交互实现
+
+[33mcommit 2d82f26f50a6d9003782d48de4cf0b219bb4f9b0[m
+Author: wake770 <2771601060@qq.com>
+Date:   Fri Jun 9 10:21:36 2023 +0800
+
+    layout-渲染一级导航列表
+
+[33mcommit 55f6c785560e3fa80e7ca4ca01e3c7c6e1605fe9[m
+Author: wake770 <2771601060@qq.com>
+Date:   Fri Jun 9 09:51:58 2023 +0800
+
+    引入图标字体
+
+[33mcommit 6a22a6c683db8982421a10491f505b73dedfb391[m
+Author: wake770 <2771601060@qq.com>
+Date:   Fri Jun 9 09:40:36 2023 +0800
+
+    layout-静态结构搭建
+
+[33mcommit 6b14c043490c9f26ea8ad0fa1d623fb54e2d4e9f[m
+Author: wake770 <2771601060@qq.com>
+Date:   Thu Jun 8 17:57:55 2023 +0800
+
+    scss文件的自动导入
+
+[33mcommit 86a66b845146884b80ab65414d02fdf8f594e10c[m
+Author: wake770 <2771601060@qq.com>
+Date:   Thu Jun 8 17:40:19 2023 +0800
+
+    静态资源引入和插件安装
+
+[33mcommit 5d125c7837e89231c3d9e40aa850d08b662eb3c4[m
+Author: wake770 <2771601060@qq.com>
+Date:   Thu Jun 8 17:00:42 2023 +0800
+
+    路由设计
+
+[33mcommit 0049c9c18f3d56f0f57ff0398f528548101523fe[m
+Author: wake770 <2771601060@qq.com>
+Date:   Thu Jun 8 16:16:42 2023 +0800
+
+    axios基础封装
+
+[33mcommit d42b063d8452975f6b40ad562b41fc888e77cad0[m
+Author: wake770 <2771601060@qq.com>
+Date:   Thu Jun 8 15:04:44 2023 +0800
+
+    elementPlus自动按需引入配置
+
+[33mcommit 84a8f24420fc16ed86568c45d005de79f0b8c871[m
+Author: wake770 <2771601060@qq.com>
+Date:   Mon Jun 5 17:39:52 2023 +0800
+
+    完成别名联想设置
+
+[33mcommit cfb5efe112a80d931095527334706011b8d304ce[m
+Author: wake770 <2771601060@qq.com>
+Date:   Mon Jun 5 17:11:13 2023 +0800
+
+    init
