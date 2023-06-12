@@ -20,7 +20,7 @@ const categoryStore = useCategoryStore()
             {{ item.name }}
           </RouterLink>
         </li>
-      </ul>
+      </ul> 
       <div class="search">
         <i class="iconfont icon-search"></i>
         <input type="text" placeholder="搜一搜">
