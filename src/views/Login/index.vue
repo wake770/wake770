@@ -39,8 +39,16 @@ const doLogin = () =>{
   formRef.value.validate((valid) => {
     //valid:所有表单都通过检验 才为true
     console.log(valid)
+    //以valid作为判断条件，如果通过校验才执行登录逻辑 
+    if(valid){
+      //TODO LOGIN
+    }
   })
 }
+// 1.用户名和密码 只需要简单的配置（看文档的方式 - 复杂功能通过多个不同组件进行拆解）
+// 2.同意协议-自定义规则 validator:(rule,value,callback)=>{}
+// 3.统一校验 通过调用form实例的方法 validate -> true
+
 </script>
 
 
