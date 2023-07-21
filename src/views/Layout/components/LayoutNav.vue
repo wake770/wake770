@@ -1,4 +1,17 @@
 <script setup>
+import { useUserStore } from '@/stores/user'
+import { useRouter } from 'vue-router';
+const userStore = useUserStore()
+const router = useRouter()
+
+const confirm = () => {
+  //退出登陆业务逻辑实现
+  //1.清除用户信息，出发action函数
+  userStore.clearUserInfo()
+  //2.跳转到登录页
+  router.push('/login')
+}
+
 
 </script>
 
@@ -7,10 +20,13 @@
     <div class="container">
       <ul>
         <!-- 多模板 区分登录状态和1非登陆状态 -->
-        <template v-if="flase">
-          <li><a href="javascript:;"><i class="iconfont icon-user"></i>周杰伦</a></li>
+ 
+
+        <!-- 适配思路 登陆显示第一块 非登陆时显示第二块 是否有token -->
+        <template v-if="userStore.userInfo.token">
+          <li><a href="javascript:;"><i class="iconfont icon-user"></i>{{ userStore.userInfo.account }}</a></li>
           <li>
-            <el-popconfirm title="确认退出吗?" confirm-button-text="确认" cancel-button-text="取消">
+            <el-popconfirm @confirm="confirm" title="确认退出吗?" confirm-button-text="确认" cancel-button-text="取消">
               <template #reference>
                 <a href="javascript:;">退出登录</a>
               </template>

@@ -4,8 +4,10 @@ import { getDetail } from '@/apis/detail'
 // import XtxSku from '@/components/XtxSku/index.vue'
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import { ElMessage } from 'element-plus';
+import { useCartStore } from '@/stores/cartStore'
 // import ImageView from '@/components/ImageView/index.vue'
-
+const cartStore = useCartStore()
 const goods = ref({})
 const route = useRoute()
 const getGoods = async () => {
@@ -15,9 +17,36 @@ const getGoods = async () => {
 onMounted(() => getGoods())
 
 //sku规格被操作时
+let skuObj = {}
 const skuChange = (sku) => {
   console.log(sku)
+  skuObj = sku
 }
+//count
+const count = ref(1)
+const countChange = (count) => {
+  console.log(count)
+}
+//添加购物车
+const addCart = () => {
+  if (skuObj.skuId) {
+    //规格已选择 触发action
+     cartStore.addCart({
+      id:goods.value.id,
+      name:goods.value.name,
+      picture:goods.value.mainPictures[0],
+      price:goods.value.price,
+      count:count.value,
+      skuId:skuObj.skuId,
+      attrsText:skuObj.specsText,
+      selected:true
+     })
+  } else {
+    //过一个没有选择，提示用户
+    ElMessage.warning("请选择规格")
+  }
+}
+
 </script>
 
 <template>
@@ -44,12 +73,12 @@ const skuChange = (sku) => {
           <div class="goods-info">
             <div class="media">
               <!-- 图片预览区 -->
-              <XtxImageView :image-list="goods.mainPictures"/>
+              <XtxImageView :image-list="goods.mainPictures" />
               <!-- 统计数量 -->
               <ul class="goods-sales">
                 <li>
                   <p>销量人气</p>
-                  <p> {{ goods.salesCount }}  </p>
+                  <p> {{ goods.salesCount }} </p>
                   <p><i class="iconfont icon-task-filling"></i>销量人气</p>
                 </li>
                 <li>
@@ -93,12 +122,12 @@ const skuChange = (sku) => {
                 </dl>
               </div>
               <!-- sku组件 -->
-              <XtxSku :goods="goods" @change="skuChange"/>
+              <XtxSku :goods="goods" @change="skuChange" />
               <!-- 数据组件 -->
-
+              <el-input-number v-model="count" @change="countChange" />
               <!-- 按钮组件 -->
               <div>
-                <el-button size="large" class="btn">
+                <el-button size="large" class="btn" @click="addCart">
                   加入购物车
                 </el-button>
               </div>
@@ -121,16 +150,16 @@ const skuChange = (sku) => {
                     </li>
                   </ul>
                   <!-- 图片 -->
-                <img v-for="img in goods.details.pictures" :src="img" :key="img" alt="">
+                  <img v-for="img in goods.details.pictures" :src="img" :key="img" alt="">
                 </div>
               </div>
             </div>
             <!-- 24热榜+专题推荐 -->
             <div class="goods-aside">
-                <!-- 24小时 -->
-                <DetailHot :hot-type="1" />
-                <!-- 周 -->
-                <DetailHot :hot-type="2"/>
+              <!-- 24小时 -->
+              <DetailHot :hot-type="1" />
+              <!-- 周 -->
+              <DetailHot :hot-type="2" />
             </div>
           </div>
         </div>

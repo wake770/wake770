@@ -7,6 +7,7 @@ import Home from '@/views/Home/index.vue'
 import Category from '@/views/Category/index.vue'
 import SubCategory from '@/views/SubCategory/index.vue'
 import Detail from '@/views/Detail/index.vue'
+import He from '@/He/index.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -36,6 +37,10 @@ const router = createRouter({
    {
     path:'/Login',
     component:Login
+   },
+   {
+    path: '/home',
+    component: He
    }
   ],
   //路由滚动行为定制

@@ -2,11 +2,12 @@
 
 //表单检验（账户名+密码）
 import { trigger } from '@vue/reactivity';
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import 'element-plus/theme-chalk/el-message.css'
 import { ElMessage } from 'element-plus'
 import { useRouter} from 'vue-router'
 import { useUserStore } from '@/stores/user'
+import { useRoute } from 'vue-router'
 
 const userStore = useUserStore()
 // 1.准备表单对象
@@ -62,7 +63,14 @@ const doLogin = () =>{
 // 1.用户名和密码 只需要简单的配置（看文档的方式 - 复杂功能通过多个不同组件进行拆解）
 // 2.同意协议-自定义规则 validator:(rule,value,callback)=>{}
 // 3.统一校验 通过调用form实例的方法 validate -> true
-
+const created = async () => {
+    const route = useRoute()
+    // const newPath = await this.$route.path.replace('/', '');
+    // console.log(newPath);
+    const newPath = await route.path.replace('/', '')
+    console.log(newPath)
+}
+onMounted(() => created())
 </script>
 
 
